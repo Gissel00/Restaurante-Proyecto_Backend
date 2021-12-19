@@ -1,0 +1,5900 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "restaurante_proyecto",
+    "version": "0.0.1",
+    "description": "REST API SERVER para el control de un restaurante",
+    "contact": {
+      "name": "Gissel",
+      "email": "Gissel55sp@gmail.com"
+    }
+  },
+  "paths": {
+    "/colaboradores/count": {
+      "get": {
+        "x-controller-name": "ColaboradoresController",
+        "x-operation-name": "count",
+        "tags": [
+          "ColaboradoresController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Colaboradores model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Colaboradores.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Colaboradores>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ColaboradoresController.count"
+      }
+    },
+    "/colaboradores/{id}": {
+      "put": {
+        "x-controller-name": "ColaboradoresController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "ColaboradoresController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Colaboradores PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Colaboradores"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ColaboradoresController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "ColaboradoresController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "ColaboradoresController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Colaboradores PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ColaboradoresPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ColaboradoresController.updateById"
+      },
+      "get": {
+        "x-controller-name": "ColaboradoresController",
+        "x-operation-name": "findById",
+        "tags": [
+          "ColaboradoresController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Colaboradores model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ColaboradoresWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Colaboradores.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ColaboradoresController.findById"
+      },
+      "delete": {
+        "x-controller-name": "ColaboradoresController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "ColaboradoresController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Colaboradores DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ColaboradoresController.deleteById"
+      }
+    },
+    "/colaboradores": {
+      "post": {
+        "x-controller-name": "ColaboradoresController",
+        "x-operation-name": "create",
+        "tags": [
+          "ColaboradoresController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Colaboradores model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Colaboradores"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewColaboradores"
+              }
+            }
+          }
+        },
+        "operationId": "ColaboradoresController.create"
+      },
+      "patch": {
+        "x-controller-name": "ColaboradoresController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "ColaboradoresController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Colaboradores PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Colaboradores.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Colaboradores>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ColaboradoresPartial"
+              }
+            }
+          }
+        },
+        "operationId": "ColaboradoresController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "ColaboradoresController",
+        "x-operation-name": "find",
+        "tags": [
+          "ColaboradoresController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Colaboradores model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ColaboradoresWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Colaboradores.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ColaboradoresController.find"
+      }
+    },
+    "/donaciones/count": {
+      "get": {
+        "x-controller-name": "DonacionesController",
+        "x-operation-name": "count",
+        "tags": [
+          "DonacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Donaciones model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Donaciones.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Donaciones>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "DonacionesController.count"
+      }
+    },
+    "/donaciones/{id}": {
+      "put": {
+        "x-controller-name": "DonacionesController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "DonacionesController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Donaciones PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Donaciones"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "DonacionesController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "DonacionesController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "DonacionesController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Donaciones PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DonacionesPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "DonacionesController.updateById"
+      },
+      "get": {
+        "x-controller-name": "DonacionesController",
+        "x-operation-name": "findById",
+        "tags": [
+          "DonacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Donaciones model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DonacionesWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Donaciones.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "DonacionesController.findById"
+      },
+      "delete": {
+        "x-controller-name": "DonacionesController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "DonacionesController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Donaciones DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "DonacionesController.deleteById"
+      }
+    },
+    "/donaciones": {
+      "post": {
+        "x-controller-name": "DonacionesController",
+        "x-operation-name": "create",
+        "tags": [
+          "DonacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Donaciones model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Donaciones"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewDonaciones"
+              }
+            }
+          }
+        },
+        "operationId": "DonacionesController.create"
+      },
+      "patch": {
+        "x-controller-name": "DonacionesController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "DonacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Donaciones PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Donaciones.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Donaciones>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DonacionesPartial"
+              }
+            }
+          }
+        },
+        "operationId": "DonacionesController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "DonacionesController",
+        "x-operation-name": "find",
+        "tags": [
+          "DonacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Donaciones model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DonacionesWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Donaciones.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "DonacionesController.find"
+      }
+    },
+    "/empleados/count": {
+      "get": {
+        "x-controller-name": "EmpleadosController",
+        "x-operation-name": "count",
+        "tags": [
+          "EmpleadosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Empleados model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Empleados.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Empleados>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "EmpleadosController.count"
+      }
+    },
+    "/empleados/{id}": {
+      "put": {
+        "x-controller-name": "EmpleadosController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "EmpleadosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Empleados PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Empleados"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "EmpleadosController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "EmpleadosController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "EmpleadosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Empleados PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmpleadosPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "EmpleadosController.updateById"
+      },
+      "get": {
+        "x-controller-name": "EmpleadosController",
+        "x-operation-name": "findById",
+        "tags": [
+          "EmpleadosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Empleados model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpleadosWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Empleados.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "EmpleadosController.findById"
+      },
+      "delete": {
+        "x-controller-name": "EmpleadosController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "EmpleadosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Empleados DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "EmpleadosController.deleteById"
+      }
+    },
+    "/empleados": {
+      "post": {
+        "x-controller-name": "EmpleadosController",
+        "x-operation-name": "create",
+        "tags": [
+          "EmpleadosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Empleados model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Empleados"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewEmpleados"
+              }
+            }
+          }
+        },
+        "operationId": "EmpleadosController.create"
+      },
+      "patch": {
+        "x-controller-name": "EmpleadosController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "EmpleadosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Empleados PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Empleados.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Empleados>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmpleadosPartial"
+              }
+            }
+          }
+        },
+        "operationId": "EmpleadosController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "EmpleadosController",
+        "x-operation-name": "find",
+        "tags": [
+          "EmpleadosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Empleados model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmpleadosWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Empleados.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "EmpleadosController.find"
+      }
+    },
+    "/eventos/count": {
+      "get": {
+        "x-controller-name": "EventosController",
+        "x-operation-name": "count",
+        "tags": [
+          "EventosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Eventos model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Eventos.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Eventos>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "EventosController.count"
+      }
+    },
+    "/eventos/{id}": {
+      "put": {
+        "x-controller-name": "EventosController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "EventosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Eventos PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Eventos"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "EventosController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "EventosController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "EventosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Eventos PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventosPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "EventosController.updateById"
+      },
+      "get": {
+        "x-controller-name": "EventosController",
+        "x-operation-name": "findById",
+        "tags": [
+          "EventosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Eventos model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventosWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Eventos.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "EventosController.findById"
+      },
+      "delete": {
+        "x-controller-name": "EventosController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "EventosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Eventos DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "EventosController.deleteById"
+      }
+    },
+    "/eventos": {
+      "post": {
+        "x-controller-name": "EventosController",
+        "x-operation-name": "create",
+        "tags": [
+          "EventosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Eventos model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Eventos"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewEventos"
+              }
+            }
+          }
+        },
+        "operationId": "EventosController.create"
+      },
+      "patch": {
+        "x-controller-name": "EventosController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "EventosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Eventos PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Eventos.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Eventos>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventosPartial"
+              }
+            }
+          }
+        },
+        "operationId": "EventosController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "EventosController",
+        "x-operation-name": "find",
+        "tags": [
+          "EventosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Eventos model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EventosWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Eventos.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "EventosController.find"
+      }
+    },
+    "/facturas/count": {
+      "get": {
+        "x-controller-name": "FacturasController",
+        "x-operation-name": "count",
+        "tags": [
+          "FacturasController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Factura model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Factura.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Factura>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "FacturasController.count"
+      }
+    },
+    "/facturas/{id}": {
+      "put": {
+        "x-controller-name": "FacturasController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "FacturasController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Factura PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Factura"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "FacturasController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "FacturasController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "FacturasController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Factura PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacturaPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "FacturasController.updateById"
+      },
+      "get": {
+        "x-controller-name": "FacturasController",
+        "x-operation-name": "findById",
+        "tags": [
+          "FacturasController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Factura model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FacturaWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Factura.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "FacturasController.findById"
+      },
+      "delete": {
+        "x-controller-name": "FacturasController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "FacturasController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Factura DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "FacturasController.deleteById"
+      }
+    },
+    "/facturas": {
+      "post": {
+        "x-controller-name": "FacturasController",
+        "x-operation-name": "create",
+        "tags": [
+          "FacturasController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Factura model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Factura"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewFactura"
+              }
+            }
+          }
+        },
+        "operationId": "FacturasController.create"
+      },
+      "patch": {
+        "x-controller-name": "FacturasController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "FacturasController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Factura PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Factura.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Factura>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacturaPartial"
+              }
+            }
+          }
+        },
+        "operationId": "FacturasController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "FacturasController",
+        "x-operation-name": "find",
+        "tags": [
+          "FacturasController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Factura model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FacturaWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Factura.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "FacturasController.find"
+      }
+    },
+    "/franquicias/count": {
+      "get": {
+        "x-controller-name": "FranquiciasController",
+        "x-operation-name": "count",
+        "tags": [
+          "FranquiciasController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Franquicias model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Franquicias.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Franquicias>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "FranquiciasController.count"
+      }
+    },
+    "/franquicias/{id}": {
+      "put": {
+        "x-controller-name": "FranquiciasController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "FranquiciasController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Franquicias PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Franquicias"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "FranquiciasController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "FranquiciasController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "FranquiciasController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Franquicias PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FranquiciasPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "FranquiciasController.updateById"
+      },
+      "get": {
+        "x-controller-name": "FranquiciasController",
+        "x-operation-name": "findById",
+        "tags": [
+          "FranquiciasController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Franquicias model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FranquiciasWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Franquicias.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "FranquiciasController.findById"
+      },
+      "delete": {
+        "x-controller-name": "FranquiciasController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "FranquiciasController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Franquicias DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "FranquiciasController.deleteById"
+      }
+    },
+    "/franquicias": {
+      "post": {
+        "x-controller-name": "FranquiciasController",
+        "x-operation-name": "create",
+        "tags": [
+          "FranquiciasController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Franquicias model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Franquicias"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewFranquicias"
+              }
+            }
+          }
+        },
+        "operationId": "FranquiciasController.create"
+      },
+      "patch": {
+        "x-controller-name": "FranquiciasController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "FranquiciasController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Franquicias PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Franquicias.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Franquicias>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FranquiciasPartial"
+              }
+            }
+          }
+        },
+        "operationId": "FranquiciasController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "FranquiciasController",
+        "x-operation-name": "find",
+        "tags": [
+          "FranquiciasController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Franquicias model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FranquiciasWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Franquicias.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "FranquiciasController.find"
+      }
+    },
+    "/inventarios/count": {
+      "get": {
+        "x-controller-name": "InventarioController",
+        "x-operation-name": "count",
+        "tags": [
+          "InventarioController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Inventario model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Inventario.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Inventario>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "InventarioController.count"
+      }
+    },
+    "/inventarios/{id}": {
+      "put": {
+        "x-controller-name": "InventarioController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "InventarioController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Inventario PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Inventario"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "InventarioController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "InventarioController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "InventarioController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Inventario PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InventarioPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "InventarioController.updateById"
+      },
+      "get": {
+        "x-controller-name": "InventarioController",
+        "x-operation-name": "findById",
+        "tags": [
+          "InventarioController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Inventario model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InventarioWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Inventario.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "InventarioController.findById"
+      },
+      "delete": {
+        "x-controller-name": "InventarioController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "InventarioController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Inventario DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "InventarioController.deleteById"
+      }
+    },
+    "/inventarios": {
+      "post": {
+        "x-controller-name": "InventarioController",
+        "x-operation-name": "create",
+        "tags": [
+          "InventarioController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Inventario model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Inventario"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewInventario"
+              }
+            }
+          }
+        },
+        "operationId": "InventarioController.create"
+      },
+      "patch": {
+        "x-controller-name": "InventarioController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "InventarioController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Inventario PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Inventario.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Inventario>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InventarioPartial"
+              }
+            }
+          }
+        },
+        "operationId": "InventarioController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "InventarioController",
+        "x-operation-name": "find",
+        "tags": [
+          "InventarioController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Inventario model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InventarioWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Inventario.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "InventarioController.find"
+      }
+    },
+    "/menus/count": {
+      "get": {
+        "x-controller-name": "MenuController",
+        "x-operation-name": "count",
+        "tags": [
+          "MenuController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Menu model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Menu.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Menu>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MenuController.count"
+      }
+    },
+    "/menus/{id}": {
+      "put": {
+        "x-controller-name": "MenuController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "MenuController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Menu PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Menu"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "MenuController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "MenuController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "MenuController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Menu PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MenuPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "MenuController.updateById"
+      },
+      "get": {
+        "x-controller-name": "MenuController",
+        "x-operation-name": "findById",
+        "tags": [
+          "MenuController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Menu model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MenuWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Menu.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MenuController.findById"
+      },
+      "delete": {
+        "x-controller-name": "MenuController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "MenuController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Menu DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "MenuController.deleteById"
+      }
+    },
+    "/menus": {
+      "post": {
+        "x-controller-name": "MenuController",
+        "x-operation-name": "create",
+        "tags": [
+          "MenuController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Menu model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Menu"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewMenu"
+              }
+            }
+          }
+        },
+        "operationId": "MenuController.create"
+      },
+      "patch": {
+        "x-controller-name": "MenuController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "MenuController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Menu PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Menu.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Menu>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MenuPartial"
+              }
+            }
+          }
+        },
+        "operationId": "MenuController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "MenuController",
+        "x-operation-name": "find",
+        "tags": [
+          "MenuController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Menu model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MenuWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Menu.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MenuController.find"
+      }
+    },
+    "/ping": {
+      "get": {
+        "x-controller-name": "PingController",
+        "x-operation-name": "ping",
+        "tags": [
+          "PingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PingResponse"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "PingController.ping"
+      }
+    },
+    "/proveedores/count": {
+      "get": {
+        "x-controller-name": "ProveedoresController",
+        "x-operation-name": "count",
+        "tags": [
+          "ProveedoresController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Proveedores model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Proveedores.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Proveedores>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ProveedoresController.count"
+      }
+    },
+    "/proveedores/{id}": {
+      "put": {
+        "x-controller-name": "ProveedoresController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "ProveedoresController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Proveedores PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Proveedores"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ProveedoresController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "ProveedoresController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "ProveedoresController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Proveedores PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProveedoresPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ProveedoresController.updateById"
+      },
+      "get": {
+        "x-controller-name": "ProveedoresController",
+        "x-operation-name": "findById",
+        "tags": [
+          "ProveedoresController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Proveedores model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProveedoresWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Proveedores.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ProveedoresController.findById"
+      },
+      "delete": {
+        "x-controller-name": "ProveedoresController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "ProveedoresController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Proveedores DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ProveedoresController.deleteById"
+      }
+    },
+    "/proveedores": {
+      "post": {
+        "x-controller-name": "ProveedoresController",
+        "x-operation-name": "create",
+        "tags": [
+          "ProveedoresController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Proveedores model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Proveedores"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewProveedores"
+              }
+            }
+          }
+        },
+        "operationId": "ProveedoresController.create"
+      },
+      "patch": {
+        "x-controller-name": "ProveedoresController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "ProveedoresController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Proveedores PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Proveedores.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Proveedores>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProveedoresPartial"
+              }
+            }
+          }
+        },
+        "operationId": "ProveedoresController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "ProveedoresController",
+        "x-operation-name": "find",
+        "tags": [
+          "ProveedoresController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Proveedores model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProveedoresWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Proveedores.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ProveedoresController.find"
+      }
+    },
+    "/reservaciones/count": {
+      "get": {
+        "x-controller-name": "ReservacionesController",
+        "x-operation-name": "count",
+        "tags": [
+          "ReservacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Reservaciones model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Reservaciones.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Reservaciones>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ReservacionesController.count"
+      }
+    },
+    "/reservaciones/{id}": {
+      "put": {
+        "x-controller-name": "ReservacionesController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "ReservacionesController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Reservaciones PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Reservaciones"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ReservacionesController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "ReservacionesController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "ReservacionesController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Reservaciones PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReservacionesPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ReservacionesController.updateById"
+      },
+      "get": {
+        "x-controller-name": "ReservacionesController",
+        "x-operation-name": "findById",
+        "tags": [
+          "ReservacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Reservaciones model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReservacionesWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Reservaciones.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ReservacionesController.findById"
+      },
+      "delete": {
+        "x-controller-name": "ReservacionesController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "ReservacionesController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Reservaciones DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ReservacionesController.deleteById"
+      }
+    },
+    "/reservaciones": {
+      "post": {
+        "x-controller-name": "ReservacionesController",
+        "x-operation-name": "create",
+        "tags": [
+          "ReservacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Reservaciones model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Reservaciones"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewReservaciones"
+              }
+            }
+          }
+        },
+        "operationId": "ReservacionesController.create"
+      },
+      "patch": {
+        "x-controller-name": "ReservacionesController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "ReservacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Reservaciones PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Reservaciones.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Reservaciones>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReservacionesPartial"
+              }
+            }
+          }
+        },
+        "operationId": "ReservacionesController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "ReservacionesController",
+        "x-operation-name": "find",
+        "tags": [
+          "ReservacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Reservaciones model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReservacionesWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Reservaciones.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ReservacionesController.find"
+      }
+    },
+    "/signup": {
+      "post": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "signUp",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "User",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewUser"
+              }
+            }
+          }
+        },
+        "operationId": "UserController.signUp"
+      }
+    },
+    "/users/login": {
+      "post": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "login",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "email",
+                  "password"
+                ],
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "password": {
+                    "type": "string",
+                    "minLength": 8
+                  }
+                }
+              }
+            }
+          },
+          "description": "The input of login function",
+          "required": true
+        },
+        "operationId": "UserController.login"
+      }
+    },
+    "/whoAmI": {
+      "get": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "whoAmI",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Return current user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "UserController.whoAmI"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Colaboradores": {
+        "title": "Colaboradores",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "numero",
+          "email"
+        ],
+        "additionalProperties": true
+      },
+      "NewColaboradores": {
+        "title": "NewColaboradores",
+        "type": "object",
+        "description": "(tsType: Omit<Colaboradores, 'id'>, schemaOptions: { title: 'NewColaboradores', exclude: [ 'id' ] })",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "numero",
+          "email"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "Omit<Colaboradores, 'id'>"
+      },
+      "ColaboradoresWithRelations": {
+        "title": "ColaboradoresWithRelations",
+        "type": "object",
+        "description": "(tsType: ColaboradoresWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "numero",
+          "email"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "ColaboradoresWithRelations"
+      },
+      "ColaboradoresPartial": {
+        "title": "ColaboradoresPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Colaboradores>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true,
+        "x-typescript-type": "Partial<Colaboradores>"
+      },
+      "Donaciones": {
+        "title": "Donaciones",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "fudacion": {
+            "type": "string"
+          },
+          "monto": {
+            "type": "number"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "fudacion",
+          "monto",
+          "fecha"
+        ],
+        "additionalProperties": true
+      },
+      "NewDonaciones": {
+        "title": "NewDonaciones",
+        "type": "object",
+        "description": "(tsType: Omit<Donaciones, 'id'>, schemaOptions: { title: 'NewDonaciones', exclude: [ 'id' ] })",
+        "properties": {
+          "fudacion": {
+            "type": "string"
+          },
+          "monto": {
+            "type": "number"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "fudacion",
+          "monto",
+          "fecha"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "Omit<Donaciones, 'id'>"
+      },
+      "DonacionesWithRelations": {
+        "title": "DonacionesWithRelations",
+        "type": "object",
+        "description": "(tsType: DonacionesWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "fudacion": {
+            "type": "string"
+          },
+          "monto": {
+            "type": "number"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "fudacion",
+          "monto",
+          "fecha"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "DonacionesWithRelations"
+      },
+      "DonacionesPartial": {
+        "title": "DonacionesPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Donaciones>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "fudacion": {
+            "type": "string"
+          },
+          "monto": {
+            "type": "number"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": true,
+        "x-typescript-type": "Partial<Donaciones>"
+      },
+      "Empleados": {
+        "title": "Empleados",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "Nombre": {
+            "type": "string"
+          },
+          "edad": {
+            "type": "number"
+          },
+          "puesto": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "direccion": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "Nombre",
+          "edad",
+          "puesto",
+          "numero",
+          "direccion"
+        ],
+        "additionalProperties": true
+      },
+      "NewEmpleados": {
+        "title": "NewEmpleados",
+        "type": "object",
+        "description": "(tsType: Omit<Empleados, 'id'>, schemaOptions: { title: 'NewEmpleados', exclude: [ 'id' ] })",
+        "properties": {
+          "Nombre": {
+            "type": "string"
+          },
+          "edad": {
+            "type": "number"
+          },
+          "puesto": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "direccion": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "Nombre",
+          "edad",
+          "puesto",
+          "numero",
+          "direccion"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "Omit<Empleados, 'id'>"
+      },
+      "EmpleadosWithRelations": {
+        "title": "EmpleadosWithRelations",
+        "type": "object",
+        "description": "(tsType: EmpleadosWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "Nombre": {
+            "type": "string"
+          },
+          "edad": {
+            "type": "number"
+          },
+          "puesto": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "direccion": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "Nombre",
+          "edad",
+          "puesto",
+          "numero",
+          "direccion"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "EmpleadosWithRelations"
+      },
+      "EmpleadosPartial": {
+        "title": "EmpleadosPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Empleados>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "Nombre": {
+            "type": "string"
+          },
+          "edad": {
+            "type": "number"
+          },
+          "puesto": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "direccion": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true,
+        "x-typescript-type": "Partial<Empleados>"
+      },
+      "Eventos": {
+        "title": "Eventos",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "cantidad": {
+            "type": "number"
+          },
+          "menu": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "nombre",
+          "numero",
+          "cantidad",
+          "menu",
+          "fecha"
+        ],
+        "additionalProperties": true
+      },
+      "NewEventos": {
+        "title": "NewEventos",
+        "type": "object",
+        "description": "(tsType: Omit<Eventos, 'id'>, schemaOptions: { title: 'NewEventos', exclude: [ 'id' ] })",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "cantidad": {
+            "type": "number"
+          },
+          "menu": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "nombre",
+          "numero",
+          "cantidad",
+          "menu",
+          "fecha"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "Omit<Eventos, 'id'>"
+      },
+      "EventosWithRelations": {
+        "title": "EventosWithRelations",
+        "type": "object",
+        "description": "(tsType: EventosWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "cantidad": {
+            "type": "number"
+          },
+          "menu": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "nombre",
+          "numero",
+          "cantidad",
+          "menu",
+          "fecha"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "EventosWithRelations"
+      },
+      "EventosPartial": {
+        "title": "EventosPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Eventos>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "cantidad": {
+            "type": "number"
+          },
+          "menu": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": true,
+        "x-typescript-type": "Partial<Eventos>"
+      },
+      "Factura": {
+        "title": "Factura",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "rtn": {
+            "type": "number"
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "cantidad": {
+            "type": "number"
+          },
+          "precio": {
+            "type": "number"
+          },
+          "total": {
+            "type": "number"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "nombre",
+          "descripcion",
+          "cantidad",
+          "precio",
+          "total",
+          "fecha"
+        ],
+        "additionalProperties": true
+      },
+      "NewFactura": {
+        "title": "NewFactura",
+        "type": "object",
+        "description": "(tsType: Omit<Factura, 'id'>, schemaOptions: { title: 'NewFactura', exclude: [ 'id' ] })",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "rtn": {
+            "type": "number"
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "cantidad": {
+            "type": "number"
+          },
+          "precio": {
+            "type": "number"
+          },
+          "total": {
+            "type": "number"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "nombre",
+          "descripcion",
+          "cantidad",
+          "precio",
+          "total",
+          "fecha"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "Omit<Factura, 'id'>"
+      },
+      "FacturaWithRelations": {
+        "title": "FacturaWithRelations",
+        "type": "object",
+        "description": "(tsType: FacturaWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "rtn": {
+            "type": "number"
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "cantidad": {
+            "type": "number"
+          },
+          "precio": {
+            "type": "number"
+          },
+          "total": {
+            "type": "number"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "nombre",
+          "descripcion",
+          "cantidad",
+          "precio",
+          "total",
+          "fecha"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "FacturaWithRelations"
+      },
+      "FacturaPartial": {
+        "title": "FacturaPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Factura>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "rtn": {
+            "type": "number"
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "cantidad": {
+            "type": "number"
+          },
+          "precio": {
+            "type": "number"
+          },
+          "total": {
+            "type": "number"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": true,
+        "x-typescript-type": "Partial<Factura>"
+      },
+      "Franquicias": {
+        "title": "Franquicias",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "Propietario": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "direccion": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "Propietario",
+          "numero",
+          "direccion"
+        ],
+        "additionalProperties": true
+      },
+      "NewFranquicias": {
+        "title": "NewFranquicias",
+        "type": "object",
+        "description": "(tsType: Omit<Franquicias, 'id'>, schemaOptions: { title: 'NewFranquicias', exclude: [ 'id' ] })",
+        "properties": {
+          "Propietario": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "direccion": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "Propietario",
+          "numero",
+          "direccion"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "Omit<Franquicias, 'id'>"
+      },
+      "FranquiciasWithRelations": {
+        "title": "FranquiciasWithRelations",
+        "type": "object",
+        "description": "(tsType: FranquiciasWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "Propietario": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "direccion": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "Propietario",
+          "numero",
+          "direccion"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "FranquiciasWithRelations"
+      },
+      "FranquiciasPartial": {
+        "title": "FranquiciasPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Franquicias>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "Propietario": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "direccion": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true,
+        "x-typescript-type": "Partial<Franquicias>"
+      },
+      "Inventario": {
+        "title": "Inventario",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "cantidad": {
+            "type": "number"
+          },
+          "lote": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "costo": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "nombre",
+          "cantidad",
+          "lote",
+          "fecha",
+          "costo"
+        ],
+        "additionalProperties": true
+      },
+      "NewInventario": {
+        "title": "NewInventario",
+        "type": "object",
+        "description": "(tsType: Omit<Inventario, 'id'>, schemaOptions: { title: 'NewInventario', exclude: [ 'id' ] })",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "cantidad": {
+            "type": "number"
+          },
+          "lote": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "costo": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "nombre",
+          "cantidad",
+          "lote",
+          "fecha",
+          "costo"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "Omit<Inventario, 'id'>"
+      },
+      "InventarioWithRelations": {
+        "title": "InventarioWithRelations",
+        "type": "object",
+        "description": "(tsType: InventarioWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "cantidad": {
+            "type": "number"
+          },
+          "lote": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "costo": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "nombre",
+          "cantidad",
+          "lote",
+          "fecha",
+          "costo"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "InventarioWithRelations"
+      },
+      "InventarioPartial": {
+        "title": "InventarioPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Inventario>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "cantidad": {
+            "type": "number"
+          },
+          "lote": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "costo": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": true,
+        "x-typescript-type": "Partial<Inventario>"
+      },
+      "Menu": {
+        "title": "Menu",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "precio": {
+            "type": "number"
+          },
+          "categoria": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "precio",
+          "categoria"
+        ],
+        "additionalProperties": true
+      },
+      "NewMenu": {
+        "title": "NewMenu",
+        "type": "object",
+        "description": "(tsType: Omit<Menu, 'id'>, schemaOptions: { title: 'NewMenu', exclude: [ 'id' ] })",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "precio": {
+            "type": "number"
+          },
+          "categoria": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "precio",
+          "categoria"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "Omit<Menu, 'id'>"
+      },
+      "MenuWithRelations": {
+        "title": "MenuWithRelations",
+        "type": "object",
+        "description": "(tsType: MenuWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "precio": {
+            "type": "number"
+          },
+          "categoria": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "precio",
+          "categoria"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "MenuWithRelations"
+      },
+      "MenuPartial": {
+        "title": "MenuPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Menu>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "precio": {
+            "type": "number"
+          },
+          "categoria": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true,
+        "x-typescript-type": "Partial<Menu>"
+      },
+      "Proveedores": {
+        "title": "Proveedores",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "numero",
+          "direccion",
+          "email"
+        ],
+        "additionalProperties": true
+      },
+      "NewProveedores": {
+        "title": "NewProveedores",
+        "type": "object",
+        "description": "(tsType: Omit<Proveedores, 'id'>, schemaOptions: { title: 'NewProveedores', exclude: [ 'id' ] })",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "numero",
+          "direccion",
+          "email"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "Omit<Proveedores, 'id'>"
+      },
+      "ProveedoresWithRelations": {
+        "title": "ProveedoresWithRelations",
+        "type": "object",
+        "description": "(tsType: ProveedoresWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "numero",
+          "direccion",
+          "email"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "ProveedoresWithRelations"
+      },
+      "ProveedoresPartial": {
+        "title": "ProveedoresPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Proveedores>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true,
+        "x-typescript-type": "Partial<Proveedores>"
+      },
+      "Reservaciones": {
+        "title": "Reservaciones",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "Nombre": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cantidad": {
+            "type": "number"
+          },
+          "mesa": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "Nombre",
+          "numero",
+          "fecha",
+          "cantidad",
+          "mesa"
+        ],
+        "additionalProperties": true
+      },
+      "NewReservaciones": {
+        "title": "NewReservaciones",
+        "type": "object",
+        "description": "(tsType: Omit<Reservaciones, 'id'>, schemaOptions: { title: 'NewReservaciones', exclude: [ 'id' ] })",
+        "properties": {
+          "Nombre": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cantidad": {
+            "type": "number"
+          },
+          "mesa": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "Nombre",
+          "numero",
+          "fecha",
+          "cantidad",
+          "mesa"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "Omit<Reservaciones, 'id'>"
+      },
+      "ReservacionesWithRelations": {
+        "title": "ReservacionesWithRelations",
+        "type": "object",
+        "description": "(tsType: ReservacionesWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "Nombre": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cantidad": {
+            "type": "number"
+          },
+          "mesa": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "Nombre",
+          "numero",
+          "fecha",
+          "cantidad",
+          "mesa"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "ReservacionesWithRelations"
+      },
+      "ReservacionesPartial": {
+        "title": "ReservacionesPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Reservaciones>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "Nombre": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cantidad": {
+            "type": "number"
+          },
+          "mesa": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": true,
+        "x-typescript-type": "Partial<Reservaciones>"
+      },
+      "User": {
+        "title": "User",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "realm": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "emailVerified": {
+            "type": "boolean"
+          },
+          "verificationToken": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email"
+        ],
+        "additionalProperties": true
+      },
+      "NewUser": {
+        "title": "NewUser",
+        "type": "object",
+        "description": "(tsType: NewUserRequest, schemaOptions: { title: 'NewUser' })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "realm": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "emailVerified": {
+            "type": "boolean"
+          },
+          "verificationToken": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "NewUserRequest"
+      },
+      "NewUserRequest": {
+        "title": "NewUserRequest",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "realm": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "emailVerified": {
+            "type": "boolean"
+          },
+          "verificationToken": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ],
+        "additionalProperties": true
+      },
+      "loopback.Count": {
+        "type": "object",
+        "title": "loopback.Count",
+        "x-typescript-type": "@loopback/repository#Count",
+        "properties": {
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "Colaboradores.Filter": {
+        "type": "object",
+        "title": "Colaboradores.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "numero": {
+                    "type": "boolean"
+                  },
+                  "email": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Colaboradores.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Colaboradores>"
+      },
+      "Colaboradores.Filter1": {
+        "type": "object",
+        "title": "Colaboradores.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Colaboradores.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "numero": {
+                    "type": "boolean"
+                  },
+                  "email": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Colaboradores.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Colaboradores>"
+      },
+      "Donaciones.Filter": {
+        "type": "object",
+        "title": "Donaciones.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "fudacion": {
+                    "type": "boolean"
+                  },
+                  "monto": {
+                    "type": "boolean"
+                  },
+                  "fecha": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Donaciones.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Donaciones>"
+      },
+      "Donaciones.Filter1": {
+        "type": "object",
+        "title": "Donaciones.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Donaciones.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "fudacion": {
+                    "type": "boolean"
+                  },
+                  "monto": {
+                    "type": "boolean"
+                  },
+                  "fecha": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Donaciones.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Donaciones>"
+      },
+      "Empleados.Filter": {
+        "type": "object",
+        "title": "Empleados.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "Nombre": {
+                    "type": "boolean"
+                  },
+                  "edad": {
+                    "type": "boolean"
+                  },
+                  "puesto": {
+                    "type": "boolean"
+                  },
+                  "numero": {
+                    "type": "boolean"
+                  },
+                  "direccion": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Empleados.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Empleados>"
+      },
+      "Empleados.Filter1": {
+        "type": "object",
+        "title": "Empleados.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Empleados.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "Nombre": {
+                    "type": "boolean"
+                  },
+                  "edad": {
+                    "type": "boolean"
+                  },
+                  "puesto": {
+                    "type": "boolean"
+                  },
+                  "numero": {
+                    "type": "boolean"
+                  },
+                  "direccion": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Empleados.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Empleados>"
+      },
+      "Eventos.Filter": {
+        "type": "object",
+        "title": "Eventos.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "numero": {
+                    "type": "boolean"
+                  },
+                  "cantidad": {
+                    "type": "boolean"
+                  },
+                  "menu": {
+                    "type": "boolean"
+                  },
+                  "fecha": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Eventos.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Eventos>"
+      },
+      "Eventos.Filter1": {
+        "type": "object",
+        "title": "Eventos.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Eventos.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "numero": {
+                    "type": "boolean"
+                  },
+                  "cantidad": {
+                    "type": "boolean"
+                  },
+                  "menu": {
+                    "type": "boolean"
+                  },
+                  "fecha": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Eventos.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Eventos>"
+      },
+      "Factura.Filter": {
+        "type": "object",
+        "title": "Factura.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "rtn": {
+                    "type": "boolean"
+                  },
+                  "descripcion": {
+                    "type": "boolean"
+                  },
+                  "cantidad": {
+                    "type": "boolean"
+                  },
+                  "precio": {
+                    "type": "boolean"
+                  },
+                  "total": {
+                    "type": "boolean"
+                  },
+                  "fecha": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Factura.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Factura>"
+      },
+      "Factura.Filter1": {
+        "type": "object",
+        "title": "Factura.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Factura.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "rtn": {
+                    "type": "boolean"
+                  },
+                  "descripcion": {
+                    "type": "boolean"
+                  },
+                  "cantidad": {
+                    "type": "boolean"
+                  },
+                  "precio": {
+                    "type": "boolean"
+                  },
+                  "total": {
+                    "type": "boolean"
+                  },
+                  "fecha": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Factura.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Factura>"
+      },
+      "Franquicias.Filter": {
+        "type": "object",
+        "title": "Franquicias.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "Propietario": {
+                    "type": "boolean"
+                  },
+                  "numero": {
+                    "type": "boolean"
+                  },
+                  "direccion": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Franquicias.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Franquicias>"
+      },
+      "Franquicias.Filter1": {
+        "type": "object",
+        "title": "Franquicias.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Franquicias.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "Propietario": {
+                    "type": "boolean"
+                  },
+                  "numero": {
+                    "type": "boolean"
+                  },
+                  "direccion": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Franquicias.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Franquicias>"
+      },
+      "Inventario.Filter": {
+        "type": "object",
+        "title": "Inventario.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "cantidad": {
+                    "type": "boolean"
+                  },
+                  "lote": {
+                    "type": "boolean"
+                  },
+                  "fecha": {
+                    "type": "boolean"
+                  },
+                  "costo": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Inventario.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Inventario>"
+      },
+      "Inventario.Filter1": {
+        "type": "object",
+        "title": "Inventario.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Inventario.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "cantidad": {
+                    "type": "boolean"
+                  },
+                  "lote": {
+                    "type": "boolean"
+                  },
+                  "fecha": {
+                    "type": "boolean"
+                  },
+                  "costo": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Inventario.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Inventario>"
+      },
+      "Menu.Filter": {
+        "type": "object",
+        "title": "Menu.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "precio": {
+                    "type": "boolean"
+                  },
+                  "categoria": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Menu.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Menu>"
+      },
+      "Menu.Filter1": {
+        "type": "object",
+        "title": "Menu.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Menu.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "precio": {
+                    "type": "boolean"
+                  },
+                  "categoria": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Menu.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Menu>"
+      },
+      "PingResponse": {
+        "type": "object",
+        "title": "PingResponse",
+        "properties": {
+          "greeting": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "properties": {
+              "Content-Type": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "Proveedores.Filter": {
+        "type": "object",
+        "title": "Proveedores.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "numero": {
+                    "type": "boolean"
+                  },
+                  "direccion": {
+                    "type": "boolean"
+                  },
+                  "email": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Proveedores.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Proveedores>"
+      },
+      "Proveedores.Filter1": {
+        "type": "object",
+        "title": "Proveedores.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Proveedores.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "numero": {
+                    "type": "boolean"
+                  },
+                  "direccion": {
+                    "type": "boolean"
+                  },
+                  "email": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Proveedores.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Proveedores>"
+      },
+      "Reservaciones.Filter": {
+        "type": "object",
+        "title": "Reservaciones.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "Nombre": {
+                    "type": "boolean"
+                  },
+                  "numero": {
+                    "type": "boolean"
+                  },
+                  "fecha": {
+                    "type": "boolean"
+                  },
+                  "cantidad": {
+                    "type": "boolean"
+                  },
+                  "mesa": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Reservaciones.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Reservaciones>"
+      },
+      "Reservaciones.Filter1": {
+        "type": "object",
+        "title": "Reservaciones.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Reservaciones.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "Nombre": {
+                    "type": "boolean"
+                  },
+                  "numero": {
+                    "type": "boolean"
+                  },
+                  "fecha": {
+                    "type": "boolean"
+                  },
+                  "cantidad": {
+                    "type": "boolean"
+                  },
+                  "mesa": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Reservaciones.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Reservaciones>"
+      }
+    },
+    "securitySchemes": {
+      "jwt": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "jwt": []
+    }
+  ]
+}
